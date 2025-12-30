@@ -28,16 +28,16 @@ bubbleST xs = runST $ do
   vec <- V.thaw (V.fromList xs)
   swapped <- newSTRef False
   let n = MV.length vec
-  let outerLoop 0 = return ()
+  let outerLoop 0 = pure ()
       outerLoop i = do
         writeSTRef swapped False
         innerLoop 0 i
         didSwap <- readSTRef swapped
         if didSwap
           then outerLoop (i - 1)
-          else return ()
+          else pure ()
       innerLoop j limit
-        | j >= limit - 1 = return ()
+        | j >= limit - 1 = pure ()
         | otherwise = do
             a <- MV.read vec j
             b <- MV.read vec (j + 1)
@@ -46,7 +46,7 @@ bubbleST xs = runST $ do
                 MV.swap vec j (j + 1)
                 writeSTRef swapped True
               else
-                return ()
+                pure ()
             innerLoop (j + 1) limit
   outerLoop n
   V.toList <$> V.freeze vec
