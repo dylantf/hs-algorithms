@@ -18,7 +18,7 @@ library
         MergeSort
     build-depends:
       base ^>=4.20.0.0,
-      vector
+      vector,
     hs-source-dirs:   src
     default-language: GHC2024
 
@@ -35,7 +35,9 @@ executable hs-algorithms
     -- Other library packages from which modules are imported.
     build-depends:
       base ^>=4.20.0.0,
-      hs-algorithms
+      hs-algorithms,
+      random,
+      time
 
     -- Directories containing source files.
     hs-source-dirs:   app
