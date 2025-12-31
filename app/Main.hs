@@ -1,6 +1,7 @@
 module Main where
 
 import Bubble (bubbleNaive, bubbleST)
+import MergeSort (mergeSort)
 import Quicksort (quicksortNaive, quicksortST)
 
 items :: [Int]
@@ -18,6 +19,11 @@ quicksort = do
   putStrLn $ "Naive: " ++ show (quicksortNaive items)
   putStrLn $ "ST: " ++ show (quicksortST items)
 
+ms :: IO ()
+ms = do
+  putStrLn $ "Unordered: " ++ show items
+  putStrLn $ "Merge sort: " ++ show (mergeSort items)
+
 main :: IO ()
 main = do
-  quicksort
+  ms

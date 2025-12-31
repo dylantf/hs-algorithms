@@ -1,5 +1,5 @@
 cabal-version:      3.0
-name:               hs-bubble
+name:               hs-algorithms
 version:            0.1.0.0
 license:            BSD-3-Clause
 license-file:       LICENSE
@@ -14,14 +14,15 @@ library
     import:           warnings
     exposed-modules:  
         Bubble,
-        Quicksort
+        Quicksort,
+        MergeSort
     build-depends:
       base ^>=4.20.0.0,
       vector
     hs-source-dirs:   src
     default-language: GHC2024
 
-executable hs-bubble
+executable hs-algorithms
     import:           warnings
     main-is:          Main.hs
 
@@ -34,7 +35,7 @@ executable hs-bubble
     -- Other library packages from which modules are imported.
     build-depends:
       base ^>=4.20.0.0,
-      hs-bubble
+      hs-algorithms
 
     -- Directories containing source files.
     hs-source-dirs:   app
